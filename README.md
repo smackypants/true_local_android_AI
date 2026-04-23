@@ -1,18 +1,20 @@
+<!-- markdownlint-disable MD013 -->
+
 # ToolNeuron
 
 **Offline AI assistant for Android.** Run LLMs, generate images, search documents — all on-device. No cloud. No subscriptions. No data leaves your phone.
+
+## Sponsor my project
+
+If you’d like to support development, you can donate via PayPal:
+
+[![Support the project](https://img.shields.io/badge/Support%20the%20project-PayPal-0070BA?logo=paypal&logoColor=white&style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=S9KULG56Q58MJ)
 
 [![Platform](https://img.shields.io/badge/Platform-Android_12%2B-3DDC84?logo=android&logoColor=white)](https://github.com/Siddhesh2377/ToolNeuron)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/mVPwHDhrAP)
 
-<p align="left">
-  <a href="https://play.google.com/store/apps/details?id=com.dark.tool_neuron">
-    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-         alt="Get it on Google Play"
-         height="80"/>
-  </a>
-</p>
+[![Get it on Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.dark.tool_neuron)
 
 [Download APK](https://github.com/Siddhesh2377/ToolNeuron/releases) · [Discord](https://discord.gg/mVPwHDhrAP) · [Report Issue](https://github.com/Siddhesh2377/ToolNeuron/issues)
 
@@ -20,22 +22,29 @@
 
 ## What It Does
 
-- **Text generation** — Load any GGUF model (Llama, Mistral, Gemma, Phi, Qwen, etc.) and chat with it locally
-- **Image generation** — Stable Diffusion 1.5 on-device, with inpainting support
-- **Image tools** — Upscale and segment images locally (depth, style transfer, inpainting coming soon)
-- **RAG** — Inject PDFs, Word docs, Excel, EPUB into conversations with semantic search
-- **Plugins** — Web search, file manager, calculator, notepad, date/time, system info, dev utils — all callable by the LLM
-- **AI memory** — The AI remembers facts about you across conversations, with deduplication and a forgetting curve
-- **Text-to-speech** — 10 voices, 5 languages, on-device synthesis
-- **Encrypted storage** — AES-256-GCM with hardware-backed keys for all chat data
-- **System backup** — Export everything as an encrypted `.tnbackup` file
+- **Text generation** — Load any GGUF model (Llama, Mistral, Gemma, Phi,
+  Qwen, etc.) and chat with it locally.
+- **Image generation** — Stable Diffusion 1.5 on-device, with inpainting
+  support.
+- **Image tools** — Upscale and segment images locally (depth, style transfer,
+  inpainting coming soon).
+- **RAG** — Inject PDFs, Word docs, Excel, and EPUB into conversations with
+  semantic search.
+- **Plugins** — Web search, file manager, calculator, notepad, date/time,
+  system info, dev utils — all callable by the LLM.
+- **AI memory** — The AI remembers facts about you across conversations, with
+  deduplication and a forgetting curve.
+- **Text-to-speech** — 10 voices, 5 languages, on-device synthesis.
+- **Encrypted storage** — AES-256-GCM with hardware-backed keys for all chat
+  data.
+- **System backup** — Export everything as an encrypted `.tnbackup` file.
 
 ---
 
 ## Requirements
 
-| | Minimum | Recommended |
-|---|---------|-------------|
+| Item | Minimum | Recommended |
+| --- | --- | --- |
 | **Android** | 10 (API 29) | 12+ |
 | **RAM** | 6 GB | 8–12 GB |
 | **Storage** | 4 GB free | 10 GB free |
@@ -47,52 +56,63 @@
 
 ### 1. Install
 
-[Google Play](https://play.google.com/store/apps/details?id=com.dark.tool_neuron) or [GitHub Releases](https://github.com/Siddhesh2377/ToolNeuron/releases).
+[Google Play](https://play.google.com/store/apps/details?id=com.dark.tool_neuron)
+or [GitHub Releases](https://github.com/Siddhesh2377/ToolNeuron/releases).
 
 ### 2. Get a model
 
 **From the in-app Model Store (recommended):**
+
 1. Open the drawer menu → Model Store
-2. Add a HuggingFace repository (e.g. `bartowski/Phi-3.5-mini-instruct-GGUF`)
+2. Add a HuggingFace repository (e.g.
+   `bartowski/Phi-3.5-mini-instruct-GGUF`)
 3. Pick a quantization and download
 
 **Or manually:**
+
 1. Download a `.gguf` file from [HuggingFace](https://huggingface.co/models?other=gguf)
 2. Use the model picker in ToolNeuron to load it
 
 ### 3. Chat
 
-Select your model, wait for it to load, start typing. Responses stream in real-time.
+Select your model, wait for it to load, and start typing. Responses stream in
+real-time.
 
 ### Recommended models for getting started
 
 | Use case | Model | Size |
-|----------|-------|------|
+| --- | --- | --- |
 | Quick test | Qwen3.5 0.8B Q4_K_M | ~600 MB |
 | General use | Qwen3.5 4B Q4_K_M | ~2.8 GB |
 | Power users | Qwen3.5 9B Q4_K_M | ~5.5 GB |
 
-> Pick Q4_K_M for a good balance between quality and size. Use Q6_K if your device has the RAM for it.
+> Pick Q4_K_M for a good balance between quality and size. Use Q6_K if your
+> device has the RAM for it.
 
 ---
 
 ## Features
 
 ### Text Generation
-- Any GGUF model works — load via file picker (no storage permissions needed, uses SAF)
-- Configurable parameters: temperature, top-k, top-p, min-p, repeat penalty, context length
-- Function calling with grammar-constrained JSON output
-- Thinking mode for models that support it
-- Per-model configs saved to database
+
+- Any GGUF model works — load via file picker (no storage permissions needed,
+  uses SAF).
+- Configurable parameters: temperature, top-k, top-p, min-p, repeat penalty,
+  context length.
+- Function calling with grammar-constrained JSON output.
+- Thinking mode for models that support it.
+- Per-model configs saved to database.
 
 ### Image Generation
-- Stable Diffusion 1.5 (censored and uncensored variants)
-- Text-to-image and inpainting
-- Configurable steps, CFG scale, seed, negative prompts, schedulers
+
+- Stable Diffusion 1.5 (censored and uncensored variants).
+- Text-to-image and inpainting.
+- Configurable steps, CFG scale, seed, negative prompts, schedulers.
 
 ### Image Tools
+
 | Tool | Status |
-|------|--------|
+| --- | --- |
 | Upscaling | Ready |
 | Segmentation (MobileSAM) | Ready |
 | Depth estimation | Model pending |
@@ -100,21 +120,26 @@ Select your model, wait for it to load, start typing. Responses stream in real-t
 | LaMa inpainting | Model pending |
 
 ### RAG (Document Intelligence)
+
 Create knowledge bases from:
+
 - **Files** — PDF, Word (.doc/.docx), Excel (.xls/.xlsx), EPUB, TXT
 - **Text** — Paste any text content
 - **Chat history** — Convert past conversations into searchable knowledge
 - **Neuron Packets** — Import encrypted `.neuron` RAG files
 
-The RAG pipeline uses hybrid retrieval: FTS4 BM25 + vector search + Reciprocal Rank Fusion + Maximal Marginal Relevance. Results are injected into the conversation context automatically.
+The RAG pipeline uses hybrid retrieval: FTS4 BM25 + vector search + Reciprocal
+Rank Fusion + Maximal Marginal Relevance. Results are injected into the
+conversation context automatically.
 
 Encrypted RAGs support admin passwords and read-only user access.
 
 ### Plugin System
+
 7 built-in plugins the LLM can call during conversations:
 
 | Plugin | What it does |
-|--------|-------------|
+| --- | --- |
 | **Web Search** | Search the web and scrape content |
 | **File Manager** | List, read, create files |
 | **Calculator** | Math expressions and unit conversion |
@@ -124,16 +149,28 @@ Encrypted RAGs support admin passwords and read-only user access.
 | **Dev Utils** | Hash, encode, format, text transforms |
 
 ### AI Memory
-Inspired by [Mem0](https://github.com/mem0ai/mem0). After conversations, the LLM extracts facts about you and stores them for future context. Deduplication via Jaccard similarity, with a forgetting curve so stale memories decay. You can view, edit, and delete memories from the Memory screen.
+
+Inspired by [Mem0](https://github.com/mem0ai/mem0). After conversations, the
+LLM extracts facts about you and stores them for future context. Deduplication
+via Jaccard similarity, with a forgetting curve so stale memories decay. You
+can view, edit, and delete memories from the Memory screen.
 
 ### Text-to-Speech
-On-device TTS via Supertonic (ONNX Runtime). 10 voices (5 female, 5 male), 5 languages (EN, KR, ES, PT, FR). Adjustable speed and quality. Auto-speak option reads responses aloud.
+
+On-device TTS via Supertonic (ONNX Runtime). 10 voices (5 female, 5 male), 5
+languages (EN, KR, ES, PT, FR). Adjustable speed and quality. Auto-speak option
+reads responses aloud.
 
 ### Hardware Tuning
-Auto-detects CPU topology (P-cores, E-cores) and recommends thread count, context size, and cache settings. Three modes: Performance, Balanced, Power Saver.
+
+Auto-detects CPU topology (P-cores, E-cores) and recommends thread count,
+context size, and cache settings. Three modes: Performance, Balanced, Power
+Saver.
 
 ### System Backup
+
 Export everything to an encrypted `.tnbackup` file (PBKDF2 + AES-256-GCM):
+
 - Chat history, AI memories, personas, knowledge graphs
 - Model configs and app settings
 - RAG files and AI models (optional, can be large)
@@ -143,9 +180,12 @@ Export everything to an encrypted `.tnbackup` file (PBKDF2 + AES-256-GCM):
 ## Privacy
 
 - **Zero data collection.** No telemetry, no analytics, no crash reporting.
-- **Everything stays on-device.** Conversations, generated images, documents, TTS audio — none of it leaves your phone.
-- **Encrypted storage.** AES-256-GCM with Android KeyStore. On supported devices, keys live in the Trusted Execution Environment.
-- **No storage permissions.** Models load through Android's file picker (SAF). The app can't access arbitrary files.
+- **Everything stays on-device.** Conversations, generated images, documents,
+  TTS audio — none of it leaves your phone.
+- **Encrypted storage.** AES-256-GCM with Android KeyStore. On supported
+  devices, keys live in the Trusted Execution Environment.
+- **No storage permissions.** Models load through Android's file picker (SAF).
+  The app can't access arbitrary files.
 - **Open source.** Read the code yourself.
 
 ---
@@ -153,6 +193,7 @@ Export everything to an encrypted `.tnbackup` file (PBKDF2 + AES-256-GCM):
 ## Building from Source
 
 ### Prerequisites
+
 - Android Studio Meerkat (2025.1.1)+
 - JDK 17
 - Android SDK 36+, NDK 26.x
@@ -173,7 +214,8 @@ cd ToolNeuron
 
 APKs land in `app/build/outputs/apk/`.
 
-If you hit NDK issues, make sure NDK 26.x is installed via SDK Manager. For memory issues during build, bump the Gradle heap in `gradle.properties`:
+If you hit NDK issues, make sure NDK 26.x is installed via SDK Manager. For
+memory issues during build, bump the Gradle heap in `gradle.properties`:
 
 ```properties
 org.gradle.jvmargs=-Xmx4096m
@@ -184,7 +226,7 @@ org.gradle.jvmargs=-Xmx4096m
 ## Architecture
 
 | Layer | Technology |
-|-------|-----------|
+| --- | --- |
 | Language | Kotlin, C++ (JNI) |
 | UI | Jetpack Compose |
 | Text inference | llama.cpp |
@@ -196,8 +238,9 @@ org.gradle.jvmargs=-Xmx4096m
 | Async | Kotlin Coroutines + Flow |
 
 ### Modules
+
 | Module | Purpose |
-|--------|---------|
+| --- | --- |
 | `app` | Main Android application |
 | `ums` | Unified Memory System — binary record storage with JNI |
 | `neuron-packet` | Encrypted RAG packet format with access control |
@@ -209,9 +252,11 @@ org.gradle.jvmargs=-Xmx4096m
 
 ## Contributing
 
-See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the project ecosystem and related repos.
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the project ecosystem and related
+repos.
 
 ### How to contribute
+
 1. Fork the repo
 2. Create a feature branch: `git checkout -b feature/your-feature`
 3. Make focused commits with clear messages
@@ -219,6 +264,7 @@ See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the project ecosystem and related rep
 5. Open a PR with a description of what you changed and how you tested it
 
 ### Priority areas
+
 - Bug fixes and stability
 - Device compatibility testing (especially mid-range phones)
 - Performance improvements
@@ -226,6 +272,7 @@ See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the project ecosystem and related rep
 - New plugins
 
 ### What not to do
+
 - Don't submit untested code
 - Don't add cloud dependencies or telemetry
 - Don't break offline functionality
@@ -236,8 +283,9 @@ See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the project ecosystem and related rep
 ## Security
 
 If you find a security vulnerability:
+
 1. **Do not** open a public GitHub issue
-2. Email siddheshsonar2377@gmail.com
+2. Email [siddheshsonar2377@gmail.com](mailto:siddheshsonar2377@gmail.com)
 3. Include reproduction steps
 4. Allow reasonable time for a fix before disclosure
 
@@ -246,18 +294,28 @@ If you find a security vulnerability:
 ## Acknowledgments
 
 - [llama.cpp](https://github.com/ggerganov/llama.cpp) — LLM inference engine
-- [LocalDream](https://github.com/xororz/local-dream) — Stable Diffusion on Android
+- [LocalDream](https://github.com/xororz/local-dream) — Stable Diffusion on
+  Android
 - [ONNX Runtime](https://onnxruntime.ai/) — TTS inference
 - [Mem0](https://github.com/mem0ai/mem0) — AI memory architecture inspiration
-- [SillyTavern](https://github.com/SillyTavern/SillyTavern) — Character card format reference
-- [Apache POI](https://poi.apache.org/), [PDFBox-Android](https://github.com/TomRoush/PdfBox-Android), [EpubLib](https://github.com/psiegman/epublib) — Document parsing
-- [Jetpack Compose](https://developer.android.com/jetpack/compose), [Room](https://developer.android.com/training/data-storage/room), [Hilt](https://dagger.dev/hilt/), [OkHttp](https://square.github.io/okhttp/), [Coil 3](https://coil-kt.github.io/coil/), [Jsoup](https://jsoup.org/)
+- [SillyTavern](https://github.com/SillyTavern/SillyTavern) — Character card
+  format reference
+- [Apache POI](https://poi.apache.org/),
+  [PDFBox-Android](https://github.com/TomRoush/PdfBox-Android),
+  [EpubLib](https://github.com/psiegman/epublib) — Document parsing
+- [Jetpack Compose](https://developer.android.com/jetpack/compose),
+  [Room](https://developer.android.com/training/data-storage/room),
+  [Hilt](https://dagger.dev/hilt/),
+  [OkHttp](https://square.github.io/okhttp/),
+  [Coil 3](https://coil-kt.github.io/coil/),
+  [Jsoup](https://jsoup.org/)
 
 ---
 
 ## License
 
-[Apache License 2.0](LICENSE) — use it, modify it, distribute it. Attribution appreciated.
+[Apache License 2.0](LICENSE) — use it, modify it, distribute it. Attribution
+appreciated.
 
 ---
 

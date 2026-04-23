@@ -1,4 +1,12 @@
 pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            when (requested.id.id) {
+                "com.android.application",
+                "com.android.library" -> useModule("com.android.tools.build:gradle:${requested.version}")
+            }
+        }
+    }
     repositories {
         google {
             content {
@@ -30,4 +38,3 @@ include(":neuron-packet")
 include(":system_encryptor")
 include(":file_ops")
 include(":ums")
-

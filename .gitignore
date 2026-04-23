@@ -11,6 +11,7 @@ local.properties
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/buildSrc/build
 /app/google-services.json
 /captures
 .externalNativeBuild

@@ -4,9 +4,7 @@ plugins {
 
 android {
     namespace = "com.neuronpacket"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 27

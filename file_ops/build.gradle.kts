@@ -4,11 +4,7 @@ plugins {
 
 android {
     namespace = "com.dark.file_ops"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 29

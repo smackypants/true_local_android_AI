@@ -1,5 +1,7 @@
 package com.dark.tool_neuron.ui.screen.guide
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -7,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -15,6 +18,8 @@ import androidx.compose.ui.unit.sp
 import com.dark.tool_neuron.ui.components.ActionTextButton
 import com.dark.tool_neuron.ui.icons.TnIcons
 import com.dark.tool_neuron.global.Standards
+
+private const val WEBSITE_URL = "https://advancedtechnologyresearch.com/"
 
 @Composable
 fun TermsAndConditionsScreen(
@@ -386,6 +391,7 @@ fun TermsAndConditionsScreen(
                         For questions about these Terms and Conditions, please contact:
 
                         Email: siddheshsonar2377@gmail.com
+                        Website: https://advancedtechnologyresearch.com/
                         GitHub: https://github.com/Siddhesh2377/ToolNeuron
                         Discord: https://discord.gg/mVPwHDhrAP
                         Google Play: https://play.google.com/store/apps/details?id=com.dark.tool_neuron
@@ -394,6 +400,25 @@ fun TermsAndConditionsScreen(
                         Last Updated: February 2026
                     """.trimIndent()
                 )
+
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.CenterEnd
+                ) {
+                    val context = LocalContext.current
+
+                    ActionTextButton(
+                        onClickListener = {
+                            context.startActivity(
+                                Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE_URL))
+                            )
+                        },
+                        icon = TnIcons.ExternalLink,
+                        text = "Visit Website",
+                        contentDescription = "Open website",
+                        shape = androidx.compose.foundation.shape.RoundedCornerShape(Standards.CardSmallCornerRadius)
+                    )
+                }
 
                 // Final acknowledgment
                 Spacer(modifier = Modifier.height(Standards.SpacingXl))

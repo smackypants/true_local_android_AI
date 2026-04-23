@@ -1,5 +1,7 @@
 package com.dark.tool_neuron.ui.screen.settings
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,6 +17,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -400,20 +403,43 @@ internal fun LazyListScope.imageGenerationSection(
 
 // ── About Section ──
 
+private const val WEBSITE_URL = "https://advancedtechnologyresearch.com/"
+
 internal fun LazyListScope.aboutSection(appVersion: String) {
     item { Spacer(Modifier.height(Standards.SpacingSm)) }
     item { SectionDivider() }
     item { SectionHeader(title = "About") }
 
     item {
+        val context = LocalContext.current
+
         StandardCard(
             title = "ToolNeuron",
             description = "On-device AI — LLM, Image Generation, TTS"
         ) {
-            BodyLabel(
-                text = "Version $appVersion",
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            Column(verticalArrangement = Arrangement.spacedBy(Standards.SpacingSm)) {
+                BodyLabel(
+                    text = "Version $appVersion",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    ActionTextButton(
+                        onClickListener = {
+                            context.startActivity(
+                                Intent(Intent.ACTION_VIEW, Uri.parse(WEBSITE_URL))
+                            )
+                        },
+                        icon = TnIcons.World,
+                        text = "Website",
+                        contentDescription = "Open website",
+                        shape = RoundedCornerShape(Standards.CardSmallCornerRadius)
+                    )
+                }
+            }
         }
     }
 }

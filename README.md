@@ -293,6 +293,7 @@ If you find a security vulnerability:
 
 ## Acknowledgments
 
+- [Advanced Technology Research](https://advancedtechnologyresearch.com/) — Project website
 - [llama.cpp](https://github.com/ggerganov/llama.cpp) — LLM inference engine
 - [LocalDream](https://github.com/xororz/local-dream) — Stable Diffusion on
   Android
@@ -319,6 +320,6 @@ appreciated.
 
 ---
 
-Built by [Siddhesh Sonar](https://github.com/Siddhesh2377)
+Built by [smackypants](https://github.com/smackypants
 
 [Star the repo](https://github.com/Siddhesh2377/ToolNeuron) · [Report a bug](https://github.com/Siddhesh2377/ToolNeuron/issues) · [Join Discord](https://discord.gg/mVPwHDhrAP)

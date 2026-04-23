@@ -1,12 +1,5 @@
 import java.util.Properties
 
-val localProps = Properties().apply {
-    val localPropertiesFile = rootProject.file("local.properties")
-    if (localPropertiesFile.exists()) {
-        localPropertiesFile.inputStream().use { load(it) }
-    }
-}
-
 plugins {
     alias(libs.plugins.android.library)
 }
@@ -16,6 +9,12 @@ android {
     compileSdk = 36
 
     defaultConfig {
+        val localProps = Properties().apply {
+            val localPropertiesFile = rootProject.file("local.properties")
+            if (localPropertiesFile.exists()) {
+                localPropertiesFile.inputStream().use { load(it) }
+            }
+        }
         minSdk = 29
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

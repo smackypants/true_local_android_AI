@@ -17,8 +17,10 @@ object BuildConfigStrings {
                 '\t' -> escaped.append("\\t")
                 '\b' -> escaped.append("\\b")
                 '\u000C' -> escaped.append("\\f")
+                '\u2028' -> escaped.append("\\u2028")
+                '\u2029' -> escaped.append("\\u2029")
                 else -> {
-                    if (char < ' ') {
+                    if (char < ' ' || char.isISOControl()) {
                         escaped.append("\\u")
                         escaped.append(char.code.toString(16).padStart(4, '0').uppercase())
                     } else {

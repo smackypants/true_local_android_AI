@@ -20,7 +20,7 @@ object BuildConfigStrings {
                 else -> {
                     if (char < ' ') {
                         escaped.append("\\u")
-                        escaped.append(char.code.toString(16).padStart(4, '0'))
+                        escaped.append(char.code.toString(16).padStart(4, '0').uppercase())
                     } else {
                         escaped.append(char)
                     }

@@ -7,13 +7,6 @@ val localProps = Properties().apply {
     }
 }
 
-fun quoteForBuildConfig(value: String): String {
-    val escaped = value
-        .replace("\\", "\\\\")
-        .replace("\"", "\\\"")
-    return "\"$escaped\""
-}
-
 plugins {
     alias(libs.plugins.android.library)
 }
@@ -30,7 +23,7 @@ android {
         minSdk = 29
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-        buildConfigField("String", "KEY_ALIAS", quoteForBuildConfig(localProps.getProperty("ALIAS", "")))
+        buildConfigField("String", "KEY_ALIAS", BuildConfigStrings.quoted(localProps.getProperty("ALIAS", "")))
 
         externalNativeBuild {
             cmake {

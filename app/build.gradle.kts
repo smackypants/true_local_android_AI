@@ -161,9 +161,5 @@ fun getProperty(value: String): String {
     } else {
         System.getenv(value)
     }
-
-    val escaped = (rawPropertyValue ?: "sample_val")
-        .replace("\\", "\\\\")
-        .replace("\"", "\\\"")
-    return "\"$escaped\""
+    return BuildConfigStrings.quoted(rawPropertyValue)
 }

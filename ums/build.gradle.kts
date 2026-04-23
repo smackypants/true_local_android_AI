@@ -1,7 +1,17 @@
 import java.util.Properties
 
 val localProps = Properties().apply {
-    rootProject.file("local.properties").inputStream().use { load(it) }
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.inputStream().use { load(it) }
+    }
+}
+
+fun quoteForBuildConfig(value: String): String {
+    val escaped = value
+        .replace("\\", "\\\\")
+        .replace("\"", "\\\"")
+    return "\"$escaped\""
 }
 
 plugins {
@@ -20,7 +30,7 @@ android {
         minSdk = 29
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-        buildConfigField("String", "KEY_ALIAS", "${localProps.getProperty("ALIAS", "")}")
+        buildConfigField("String", "KEY_ALIAS", quoteForBuildConfig(localProps.getProperty("ALIAS", "")))
 
         externalNativeBuild {
             cmake {

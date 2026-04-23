@@ -1,4 +1,3 @@
-import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
@@ -154,12 +153,17 @@ dependencies {
 }
 
 fun getProperty(value: String): String {
-    return if (localPropertiesFile.exists()) {
+    val raw = if (localPropertiesFile.exists()) {
         val localProps = Properties().apply {
-            load(FileInputStream(localPropertiesFile))
+            localPropertiesFile.inputStream().use { load(it) }
         }
-        localProps.getProperty(value) ?: "\"sample_val\""
+        localProps.getProperty(value)
     } else {
-        System.getenv(value) ?: "\"sample_val\""
+        System.getenv(value)
     }
+
+    val escaped = (raw ?: "sample_val")
+        .replace("\\", "\\\\")
+        .replace("\"", "\\\"")
+    return "\"$escaped\""
 }

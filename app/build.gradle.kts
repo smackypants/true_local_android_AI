@@ -153,7 +153,7 @@ dependencies {
 }
 
 fun getProperty(value: String): String {
-    val raw = if (localPropertiesFile.exists()) {
+    val rawPropertyValue = if (localPropertiesFile.exists()) {
         val localProps = Properties().apply {
             localPropertiesFile.inputStream().use { load(it) }
         }
@@ -162,7 +162,7 @@ fun getProperty(value: String): String {
         System.getenv(value)
     }
 
-    val escaped = (raw ?: "sample_val")
+    val escaped = (rawPropertyValue ?: "sample_val")
         .replace("\\", "\\\\")
         .replace("\"", "\\\"")
     return "\"$escaped\""
